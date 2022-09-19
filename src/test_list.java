@@ -11,6 +11,6 @@ public class test_list {
     //list.delete_end_elemetn_mylist();
         //list.delete_by_value("privet");
     //list.clear_mylist();
-    list.print_mylist();
+    copy.print_mylist();
     }
 }

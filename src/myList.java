@@ -34,19 +34,22 @@ public class myList<E> {
         }
     }
     public void copy_list(myList original, myList copy){ // мы взяли весь список
-        Node<E> first_element_copy = new Node<E>(null,null,null);
-        Node<E> last_element_copy = new Node<>(null,first_element_copy,null);
-        first_element_copy.setNext(last_element_copy);
-        int i = 0;
-        while (original.getItem() != null && i > 0){
-            E element_copy= original.getItem();
-            Node<E> prev_copy = original.getPrev();
-            Node<E> next_copy = original.getNext();
-            Node<E> pos_elment_copy = new Node<E>(element_copy,prev_copy,next_copy);
-            i++;
-            //original = original.getNext();
-            //System.out.println("i");
-            new Node<E>(null, pos_elment_copy, null);
+        Node<E> original_element = original.first_element;
+        E item = null;
+        Node<E> copy_element = copy.last_element;
+        //Node<E> next_element_copy;
+        for (int i = 0; i < original.number_elements; i++){
+            original_element = original_element.getNext();
+            item = original_element.getItem();
+            copy_element.setItem(item);
+            copy.last_element = new Node<E>(null,copy_element,null);
+            copy_element.setNext(copy.last_element);
+            copy_element = copy.last_element;
+
+            //copy.first_element = new Node<E>(null,null,copy_element);
+            //copy_element.setPrev(first_element);
+            //copy_element =
+            copy.number_elements++;
         }
     }
     public int size_list(){
