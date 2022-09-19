@@ -67,28 +67,23 @@ public class myList<E> {
         last_element.setNext(null);
         number_elements--;
     }
-  /*  public void delete_by_value(E element){
-        Node<E> variable = first_element.getNext();
-        for (int i =0; i < number_elements ; i++){
-            //E arr = variable.getItem();
-            E variaable_name = variable.getItem();
-            if(variaable_name == element){
-                if(i == 0){
-
-                }else if(i > 0 && i < number_elements-1 ){
-
-                }else if(i == number_elements - 1){
-                    variable = variable.getPrev();
-                    System.out.println(variable.getItem());
-                    last_element = new Node<E>(null,variable,null);
-                    variable.setNext(last_element);
-                    //number_elements--;
+    public void delete_by_value(E element){
+        Node<E> previous = first_element;
+        Node<E> current = first_element.getNext();
+        Node<E> next = current.getNext();
+        for(int i =0; i < number_elements; i++){
+            E item = current.getItem();
+            if(item == element){
+                previous.setNext(next);
+                next.setPrev(previous);
+                number_elements --;
                 break;
-                }
             }
-            variable = variable.getNext();
+            previous = previous.getNext();
+            current = previous.getNext();
+            next = current.getNext();
         }
-    }*/
+    }
     public void clear_mylist(){
         Node<E> variable = first_element;
        last_element.setPrev(first_element);
